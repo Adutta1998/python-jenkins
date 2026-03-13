@@ -10,7 +10,7 @@ pipeline {
         }
         stage('setup UV'){
             steps {
-                bat 'pip install uv'
+                bat 'python -m pip install uv'
             }
         }
         stage('Install Dependencies') {
