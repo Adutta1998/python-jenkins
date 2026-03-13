@@ -15,12 +15,12 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                bat 'uv pip install -r requirements.txt'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
         stage('Setup venv and run app') {
             steps {
-                bat 'uv python main.py'
+                bat 'python main.py'
             }
         }
 
