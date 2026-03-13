@@ -3,9 +3,9 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Checkout with branch') {
             steps {
-                git 'https://github.com/Adutta1998/python-jenkins'
+                git branch: 'main', url: 'https://github.com/Adutta1998/python-jenkins'
             }
         }
         stage('setup UV'){
