@@ -1,8 +1,8 @@
 pipeline {
-    agent ubuntu-latest
+    agent any
 
     environment {
-        PATH = "${env.HOME}/.local/bin:${env.PATH}"
+        PATH = "${HOME}/.local/bin:${PATH}"
     }
 
     stages {
@@ -17,10 +17,6 @@ pipeline {
             steps {
                 sh '''
                     curl -LsSf https://astral.sh/uv/install.sh | sh
-
-                    uv venv .venv
-                    . .venv/bin/activate
-
                     uv sync
                 '''
             }
@@ -29,7 +25,6 @@ pipeline {
         stage('Run') {
             steps {
                 sh '''
-                    . .venv/bin/activate
                     uv run python main.py
                 '''
             }
