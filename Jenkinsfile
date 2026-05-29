@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "${env.HOME}/.local/bin:${env.PATH}"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -13,7 +17,6 @@ pipeline {
             steps {
                 sh '''
                     curl -LsSf https://astral.sh/uv/install.sh | sh
-                    export PATH=$HOME/.local/bin:$PATH
 
                     uv venv .venv
                     . .venv/bin/activate
