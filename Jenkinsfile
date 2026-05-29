@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent ubuntu-latest
 
     environment {
         PATH = "${env.HOME}/.local/bin:${env.PATH}"
